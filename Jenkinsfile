@@ -65,7 +65,7 @@ pipeline {
             }
           }
         }
-           stage('Deploy to Kubernetes Cluster (EKS)') {
+           stage('Deploy to Docker Container') {
              steps{   
                script {
                    sh "docker run -p 8085:80 ${imagename}"
