@@ -68,7 +68,7 @@ pipeline {
            stage('Deploy to Docker Container') {
              steps{   
                script {
-                   sh "docker run -p 8085:8085 ${imagename}"
+                   sh "docker run --privileged -p 8085:8085 ${imagename}"
          
        }
      }
