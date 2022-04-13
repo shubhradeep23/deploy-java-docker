@@ -3,7 +3,7 @@ pipeline {
           imagename = "shubhradeepghosh23/test-app"
           registryCredential = 'dockerhub-creds'
           dockerImage = ''
-          CHECK_URL = "http://3.93.212.108:8085/greeting"
+          CHECK_URL = "http://44.201.192.112:8085/greeting"
           CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
     }
         agent any
