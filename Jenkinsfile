@@ -1,7 +1,7 @@
 pipeline {
         environment {
           imagename = "shubhradeepghosh23/test-app"
-          registryCredential = 'dockerhub-creds'
+          registryCredential = 'dockerhub-cred'
           dockerImage = ''
           CHECK_URL = "http://44.204.49.12:8085/greeting"
           CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
