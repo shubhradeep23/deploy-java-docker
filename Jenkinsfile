@@ -1,9 +1,10 @@
 pipeline {
         environment {
           imagename = "shubhradeepghosh23/test-app"
+          tag = '1.0.0'
           registryCredential = 'dockerhub-cred'
           dockerImage = ''
-          CHECK_URL = "http://44.204.49.12:8085/greeting"
+          CHECK_URL = "http://52.91.166.75:8085/greeting"
           CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
     }
         agent any
@@ -59,7 +60,7 @@ pipeline {
               script {
                 docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
                 dockerImage.push("$BUILD_NUMBER")
-                dockerImage.push('latest')
+                dockerImage.push(tag)
 
               }
             }
@@ -68,7 +69,7 @@ pipeline {
            stage('Deploy to Docker Container') {
              steps{   
                script {
-                   sh "docker run --privileged -p 8085:8085 ${imagename}"
+                   sh "docker run -d -p 8085:8085 ${imagename}"
          
        }
      }
