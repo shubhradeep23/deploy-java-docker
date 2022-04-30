@@ -70,6 +70,7 @@ pipeline {
              steps{   
                script {
                    sh "docker run -d -p 8085:8085 ${imagename}:${tag}"
+                   sleep 30
          
        }
      }
