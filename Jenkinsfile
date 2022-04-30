@@ -1,7 +1,7 @@
 pipeline {
         environment {
           imagename = "shubhradeepghosh23/test-app"
-          tag = '1.0.0'
+          tag = '1.0.1'
           registryCredential = 'dockerhub-cred'
           dockerImage = ''
           CHECK_URL = "http://52.91.166.75:8085/greeting"
@@ -69,7 +69,7 @@ pipeline {
            stage('Deploy to Docker Container') {
              steps{   
                script {
-                   sh "docker run -d -p 8085:8085 ${imagename}"
+                   sh "docker run -d -p 8085:8085 ${imagename}:${tag}"
          
        }
      }
